@@ -14,8 +14,8 @@ def click():
         luck = randint(1, 15)
         if luck == 1:
             count = 0
-        badluck = 1
-        if badluck == randint(1, 30):
+        badluck = randint(1, 30)
+        if badluck == 1:
             exit()
     elif count >= 100:
         label.config(text="Sorry... I lost count", fg= "red")
