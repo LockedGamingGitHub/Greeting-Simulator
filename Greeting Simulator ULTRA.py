@@ -35,6 +35,7 @@ button.config(activeforeground='#000000')
 # Configuring the Greet Counter
 label = Label(window, text="Start greeting people!", fg= "blue")
 label.config(font=('Monospace', 40, 'bold'))
+# Displaying the Widgets
 label.pack()
 button.pack()
 # Counfiguring the Window
