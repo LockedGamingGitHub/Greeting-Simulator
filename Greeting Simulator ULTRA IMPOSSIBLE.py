@@ -1,11 +1,12 @@
-from glob import glob
-from multiprocessing.connection import wait
-from random import randint
-from re import U
+# Imports
 from tkinter import *
+from random import randint
 
+# Random Variables
 count = 0
+window = Tk()
 
+# What Happens When You Click the Greet Button
 def click():
     global count
     if count <= 100:
@@ -21,8 +22,10 @@ def click():
         label.config(text="Sorry... I lost count", fg= "red")
 
     
+
     
-window = Tk()
+    
+# Configuring the Greet Button
 button = Button(window, text='Greet Someone Like a Gamer!')
 button.config(command=click)
 button.config(font=('Open Sans', 50, 'bold'))
@@ -30,11 +33,14 @@ button.config(bg='#b8860b')
 button.config(fg='#000000')
 button.config(activebackground='#daa520')
 button.config(activeforeground='#000000')
+# Configuring the Greet Counter
 label = Label(window, text="Start greeting people!", fg= "blue")
 label.config(font=('Monospace', 40, 'bold'))
+# Displaying the Widgets
 label.pack()
 button.pack()
-window.title('Greeting Simulator ULTRA IMPOSSIBLE')
+# Counfiguring the Window
+window.title('Greeting Simulator ULTRA')
 window.state("zoomed")
 window.mainloop()
 
