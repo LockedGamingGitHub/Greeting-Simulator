@@ -1,6 +1,7 @@
 # Imports
 from tkinter import *
 from random import randint
+import pickle
 
 # Random Variables
 count = 0
@@ -11,14 +12,32 @@ def click():
     global count
     goodluck = randint(1, 50)
     if goodluck == 1:
+        if count <= 100:
+          if count == 0:
+            SavedCount = pickle.load(open("score.dat", "rb"))
+            if SavedCount >= 100:
+              SavedCount = 0
+              count = SavedCount
+            else:
+              count = SavedCount
+
         count+=10
         label.config(text=count)
     else:
         if count <= 100:
+          if count == 0:
+            SavedCount = pickle.load(open("score.dat", "rb"))
+            if SavedCount >= 100:
+              SavedCount = 0
+              count = SavedCount
+            else:
+              count = SavedCount
+
           count+=1
           label.config(text=count)
         elif count >= 100:
           label.config(text="Sorry... I lost count", fg= "red")
+    pickle.dump(count, open("score.dat", "wb"))
 
     
 
