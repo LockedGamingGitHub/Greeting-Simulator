@@ -1,5 +1,5 @@
 # Greeting Simulator 1.1 (Merged With Greeting Simulator ULTRA)
-Improvments From Greeting Simulator 1.0
+Improvements From Greeting Simulator 1.0
 1. Different Color Scheme
 2. A little easter egg...
 3. Stabiltiy Improvments
