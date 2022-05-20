@@ -2,26 +2,45 @@ import pgzrun
 from pgzero.builtins import *
 
 
-WIDTH = 800
-HEIGHT = 600
-TITLE = "Greeting Simulator 2.0 BETA"
+from random import randint
 
-player = Actor("player")
-player.pos = 100, 100
+WIDTH = 400
+HEIGHT = 400
+score = 0
+game_over = False
+
+greet = Actor("greet")
+greet.pos = 200, 200
 
 def draw():
-    screen.clear()
     screen.fill("green")
-    player.draw()
-def update():
-    if keyboard.left:
-      player.x = player.x - 2
-    elif keyboard.right:
-      player.x = player.x + 2
-    elif keyboard.up:
-        player.y = player.y - 2
-    elif keyboard.down:
-        player.y = player.y + 2
+    greet.draw()
+    screen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
+
+    if game_over:
+        screen.fill("pink")
+        screen.draw.text("Final Score: " + str(score), topleft=(10, 10), fontsize=60)
+
+def place_greet():
+    greet.x = randint(20, (WIDTH - 20))
+    greet.y = randint(20, (HEIGHT - 20))
+
+def time_up():
+    global game_over
+    game_over = True
+
+def on_mouse_down():
+  global score
+  global greetclicked
+  greetclicked = greet.collidepoint(greet.pos)
+  if greet.collidepoint(greet.pos):
+    score = score + 1
+    place_greet()
+
+clock.schedule(time_up, 10.0)
+place_greet()
+
+
 
 
 pgzrun.go()
