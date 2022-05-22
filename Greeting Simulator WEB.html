@@ -4,14 +4,20 @@
     <body>
         <h3 style="font-size: xx-large;color: blue;font-family: monospace;">People Greeted:  <span id = "greets">0</span></h3>
         <button type = "button" onclick =
-            "addToScore(1)" style="font-size: xx-large;background-color: #b8860b;font-family: 'Open Sans'">
+            "addToScore()" style="font-size: xx-large;background-color: #b8860b;font-family: 'Open Sans'">
             Greet Someone
         </button>
         <script>
             var score = 0;
-            function addToScore(amount) {
-                score = score + amount;
+            function addToScore() {
                 if (score < 100) {
+                    luck = Math.round(Math.random() * 50);
+                    if (luck === 1) {
+                        score = score + 10;
+                    }
+                    else {
+                        score = score + 1
+                    }
                     document.getElementById("greets").innerHTML = score;
                 }
                 else {
