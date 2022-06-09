@@ -1,5 +1,6 @@
 import pgzrun
 from pgzero.builtins import *
+import math
 
 
 from random import randint
@@ -33,8 +34,12 @@ def on_mouse_down():
   global score
   global greetclicked
   greetclicked = greet.collidepoint(greet.pos)
+  luck = randint(1, 15)
   if greet.collidepoint(greet.pos):
-    score = score + 1
+    if luck == 1:
+      score = score + 10
+    else:
+        score = score + 1
     place_greet()
 
 clock.schedule(time_up, 10.0)
